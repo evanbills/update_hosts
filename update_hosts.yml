@@ -1,0 +1,10 @@
+---
+- name: Update hosts with all the latest packages
+  become: sudo
+
+
+  tasks:
+    - name: run the yum updater
+      yum:
+        name: all
+        state: latest
