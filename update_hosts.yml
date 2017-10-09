@@ -6,5 +6,5 @@
   tasks:
     - name: run the yum updater
       yum:
-        name: all
+        name: *
         state: latest
