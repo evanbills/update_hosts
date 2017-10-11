@@ -1,5 +1,5 @@
----
 - name: Update hosts with all the latest packages
+  hosts: all
   become: sudo
 
 
