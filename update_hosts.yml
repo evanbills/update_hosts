@@ -8,3 +8,10 @@
       yum:
         name: '*'
         state: latest
+        only_if: "'$ansible_pkg_mgr' == 'yum'"
+
+    - name: run the apt-get updater
+      apt:
+        name: '*'
+        state: latest
+        only_if: "'$ansible_pkg_mgr' == 'apt'"
