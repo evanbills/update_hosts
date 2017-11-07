@@ -11,6 +11,7 @@
       name: yum-utils
       state: latest
 
+# based on ansible noodle -m yum -a "list=updates"
   - name: check for updates (yum)
     yum: list=updates update_cache=true
     register: yumoutput
@@ -21,8 +22,9 @@
   #   register: aptoutput
   #   when: ansible_distribution_major_version|int < 22
 
-  - debug: msg="{{ inventory_hostname}} {{ yumoutput.results|length }}"
-    when: yumoutput is defined and yumoutput.results|length > 0
+  #- debug: msg="{{ inventory_hostname}} {{ yumoutput.results|length }}"
+  - debug: msg="{{ inventory_hostname}} {{ yumoutput.results }}"
+    #when: yumoutput is defined and yumoutput.results|length > 0
   #
   # - debug: msg="{{ inventory_hostname}} {{ yumoutput.results|length }}"
   #   when: aptoutput is defined and aptoutput.results|length > 0
