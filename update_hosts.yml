@@ -4,10 +4,10 @@
 
 
   tasks:
-    - name: run the yum updater
-      action: yum -a "name=* state=latest"
-      only_if: "'$ansible_pkg_mgr' == 'yum'"
+  - name: run the yum updater
+    action: yum -a "name=* state=latest"
+    only_if: "'$ansible_pkg_mgr' == 'yum'"
 
-    - name: run the apt-get updater
-      action: apt -a "upgrade=yes update_cache=yes" -s
-      only_if: "'$ansible_pkg_mgr' == 'apt'"
+  - name: run the apt-get updater
+    action: apt -a "upgrade=yes update_cache=yes" -s
+    only_if: "'$ansible_pkg_mgr' == 'apt'"
