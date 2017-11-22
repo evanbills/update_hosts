@@ -1,6 +1,6 @@
 - name: Update hosts with all the latest packages
   hosts: all
-
+  become: true
 
   tasks:
   - name: run the yum updater
