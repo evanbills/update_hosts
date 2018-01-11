@@ -15,7 +15,7 @@
   - name: check for updates (yum)
     yum: list=updates update_cache=true
     register: yumoutput
-    #when: ansible_distribution_major_version|int < 22
+    when: ansible_distribution_major_version|int < 22
 
   # - name: check for updates (apt)
   #   apt: list=updates update_cache=true
@@ -24,7 +24,7 @@
 
   #- debug: msg="{{ inventory_hostname}} {{ yumoutput.results|length }}"
   - debug: msg="{{ inventory_hostname}} {{ yumoutput.results }}"
-    #when: yumoutput is defined and yumoutput.results|length > 0
+    when: yumoutput is defined and yumoutput.results|length > 0
   #
   # - debug: msg="{{ inventory_hostname}} {{ yumoutput.results|length }}"
   #   when: aptoutput is defined and aptoutput.results|length > 0
