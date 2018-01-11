@@ -22,8 +22,8 @@
   #   register: aptoutput
   #   when: ansible_distribution_major_version|int < 22
 
-  #- debug: msg="{{ inventory_hostname}} {{ yumoutput.results|length }}"
-  - debug: msg="{{ inventory_hostname}} {{ yumoutput.results }}"
+  - debug: msg="{{ inventory_hostname}} {{ yumoutput.results|length }}"
+  #- debug: msg="{{ inventory_hostname}} {{ yumoutput.results }}"
     when: yumoutput is defined and yumoutput.results|length > 0
   #
   # - debug: msg="{{ inventory_hostname}} {{ yumoutput.results|length }}"
